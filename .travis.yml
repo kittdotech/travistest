@@ -21,6 +21,7 @@ services: docker
 
 before_script:
 #  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
+  - curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 12.19.36
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
   - /opt/chefdk/embedded/bin/chef --version
   - /opt/chefdk/embedded/bin/cookstyle --version
