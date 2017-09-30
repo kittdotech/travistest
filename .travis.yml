@@ -8,7 +8,7 @@ addons:
     sources:
       - chef-stable-trusty
     packages:
-      - chefdk
+      - chefdk-1.3
 
 # Don't `bundle install`
 install: echo "skip bundle install"
