@@ -24,6 +24,7 @@ before_script:
   - curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 12.19.36
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
   - /opt/chefdk/embedded/bin/chef --version
+  - /opt/chefdk/embedded/bin/gem list
   - /opt/chefdk/embedded/bin/cookstyle --version
   - /opt/chefdk/embedded/bin/foodcritic --version
 
