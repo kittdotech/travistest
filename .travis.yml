@@ -6,9 +6,7 @@ dist: trusty
 addons:
   apt:
     sources:
-      - chef-stable-trusty
-    packages:
-      - chefdk-1.3
+      - chef-stable-xenial
 
 # Don't `bundle install`
 install: echo "skip bundle install"
@@ -21,7 +19,7 @@ services: docker
 
 before_script:
 #  - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
-  - curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 12.19.36
+  - curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk -v 1.3
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
   - /opt/chefdk/embedded/bin/gem install chef -v '12.19.36'
   - /opt/chefdk/embedded/bin/chef --version
