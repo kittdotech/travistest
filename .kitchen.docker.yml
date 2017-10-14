@@ -3,7 +3,6 @@ driver:
   name: dokken
   privileged: true
   chef_version: 12.19.36
-  hostname: test.introhive.com
 
 transport:
   name: dokken
@@ -35,12 +34,9 @@ platforms:
       - RUN /usr/bin/apt-get install apt-transport-https net-tools -y
 
 suites:
-  - name: sensu-server
+  - name: test-server
     run_list:
-      - recipe[ih_sensu::default]
-      - recipe[ih_sensu::rabbitmq]
-      - recipe[ih_sensu::redis]
-      - recipe[ih_sensu::server]
+      - recipe[travistest]
     excludes:
       - ubuntu-14.04
       
